@@ -1,0 +1,41 @@
+<div  class="container-fluid" id="userdetail">
+    <div *ngIf="Customer" class="col-lg-6 offset-lg-3 col-12 container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <p class="mat-display-1">Modifica utente {{Customer.Description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <mat-form-field>
+                    <input 
+                    [(ngModel)]="Request.Password"
+                    matInput
+                     placeholder="Inserisci la password" 
+                     [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Nascondi password'" [attr.aria-pressed]="Nascondi">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-12 col-lg-6">
+                <mat-checkbox [(ngModel)]="Request.Enabled"       [(checked)]="Request.Enabled" >Abilita utente?</mat-checkbox>
+            </div>
+        </div>
+        <div class="row" style="margin-top:2vh;">
+                <div class="col-12 col-lg-6">
+                        <button mat-stroked-button [disabled]="!Request.Password || Request.Password==0 " >Conferma</button>
+                </div>
+        </div>
+        <div class="row" style="margin-top:2vh;">
+           <span>{{RequestJson}}</span>
+        </div>
+
+
+        
+     </div>
+
+
+</div>

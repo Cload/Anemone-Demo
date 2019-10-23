@@ -1,0 +1,45 @@
+<div class="container-fluid">
+<div class="col-lg-12 col-12" id="customerscontainer">
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Cerca...">
+</mat-form-field>
+    <table mat-table #customerstable [dataSource]="customersDataSource" class="mat-elevation-<8" matSort  >
+      <!-- Colonna Nome -->
+    <ng-container matColumnDef="Description">
+        <th mat-sort-header mat-header-cell  *matHeaderCellDef >Nome</th>
+        <td mat-cell *matCellDef="let element">{{element.Description}} </td>
+    </ng-container>
+      <!-- Colonna Email -->
+    <ng-container matColumnDef="Email">
+        <th mat-sort-header mat-header-cell   *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element"> {{(element.Email && element.Email.length > 0) ? element.Email : '-'}} </td>
+    </ng-container>
+    <!-- Colonna Enabled-->
+    <ng-container matColumnDef="Enabled">
+        <th mat-sort-header mat-header-cell  *matHeaderCellDef>Attivo</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox
+          [disabled]="true"
+          [checked]="element.Enabled"
+          >
+          </mat-checkbox>
+        
+        </td>
+    </ng-container> 
+    <!-- Colonna Address -->
+    <ng-container matColumnDef="Address">
+        <th mat-sort-header *matHeaderCellDef mat-header-cell >Indirizzo</th>
+        <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+    </ng-container>   
+        <!-- Colonna Edit -->
+    <ng-container matColumnDef="Edit">
+        <th *matHeaderCellDef mat-header-cell >Modifica</th>
+        <td mat-cell *matCellDef="let element">
+              <mat-icon class="clickable" (click)="goToDetails(element)" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+        </td>
+    </ng-container> 
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>  
+</div>  
+</div>

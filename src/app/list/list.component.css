@@ -1,0 +1,15 @@
+#customerscontainer
+{
+    max-height: 80vh;
+    overflow: auto;
+    margin-top:2vh;
+}
+.mat-table
+{
+    width: 100%;
+}
+.clickable
+{
+    cursor: pointer;
+    -moz-user-select: none;
+}

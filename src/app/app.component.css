@@ -1,0 +1,16 @@
+#menuicon, .actionlistitem
+{
+    
+    cursor: pointer;
+}
+
+#sidenavcontainer
+{
+    min-height: 100%;
+}
+a , a:hover
+{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
