@@ -12,9 +12,9 @@
                     [(ngModel)]="Request.Password"
                     matInput
                      placeholder="Inserisci la password" 
-                     [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Nascondi password'" [attr.aria-pressed]="Nascondi">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                     [type]="HidePassword ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="HidePassword = !HidePassword"  >
+                        <mat-icon>{{HidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
             </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="row" style="margin-top:2vh;">
                 <div class="col-12 col-lg-6">
-                        <button mat-stroked-button [disabled]="!Request.Password || Request.Password==0 " >Conferma</button>
+                        <button mat-stroked-button [disabled]="!Request.Password || Request.Password.length==0 " >Conferma</button>
                 </div>
         </div>
         <div class="row" style="margin-top:2vh;">
